@@ -1,3 +1,7 @@
+# let the user type in an integer
+# keep calling collatz() until the function returns the value 1
+# validate input
+
 def collatz(number):
     # PEP 285 "Strong and bitter words indicate a weak cause."
     if number % 2:
@@ -8,13 +12,11 @@ def collatz(number):
     print(number)
     return number
 
-def main():
-    innie = input("Enter number: ")
-    
+def main():    
     try:
-        innie = int(innie)
+        innie = int(input("Enter number: "))
         
-        # Handle error causing infinite loop
+        # handle error causing infinite loop
         if innie <= 0:
             raise ValueError
 
@@ -22,7 +24,7 @@ def main():
             innie = collatz(innie)
         
     except ValueError:
-        # Took liberty to include specifying greater than zero
+        # took liberty to include specifying greater than zero
         print("You must enter an integer greater than zero.")
         main()
 
